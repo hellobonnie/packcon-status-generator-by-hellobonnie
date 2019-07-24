@@ -21,11 +21,13 @@ function pickRandom(argument) {
 
 var subjectlist = ([
 'BONNIE HE',
+'THE BAE*GENCY',
 'The Pack',
 'THE OINTMENT',
 'YOUR LATE NIGHT SHOW TONIGHT',
 'THE NICKY URBAN SHOW',
 'LATE NITE HOOK UPS',
+'THE BAE*GENCY',
 'THE BAE*GENCY',
 'YAY!',
 'BIG YELLOW TAXI',
@@ -265,10 +267,12 @@ var objectlist = ([
   // Manually copying/pasting subject array afer this point
 
 'The Pack',  
+'THE BAE*GENCY',
 'THE OINTMENT',
 'YOUR LATE NIGHT SHOW TONIGHT',
 'THE NICKY URBAN SHOW',
 'LATE NITE HOOK UPS',
+'THE BAE*GENCY',
 'THE BAE*GENCY',
 'YAY!',
 'BIG YELLOW TAXI',
@@ -419,7 +423,11 @@ express()
           res.write('<br />' + randomStatus + '<br />');
           res.write('<br><br><br><button onclick="location.reload();">Generate New PackCon Status</button><br><br></center>');
           
-          res.end();
+          res.end(  '<br><br>
+  <br><br>
+  <br><br>
+  PACKCON STATUS GENERATOR<br>
+  by Bonnie He');
           client.release();
         }
       })      
