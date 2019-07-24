@@ -260,7 +260,6 @@ var objectlist = ([
 'the love of your life',
 'your dildo',
 'your dad bod',
-'me',
 
 
   
