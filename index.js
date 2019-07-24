@@ -364,6 +364,20 @@ express()
     }
   })
 
+  .get('/startup', async (req, res) => {
+    try {
+      const client = await pool.connect()
+      const result3 = await client.query("CREATE TABLE test_table(id SERIAL PRIMARY KEY, count INT)");
+      const result4 = await client.query("CREATE TABLE phrase_table(id SERIAL PRIMARY KEY, phrase TEXT, createtime TIMESTAMP)");
+      const result5 = await client.query("INSERT INTO test_table(id, count) VALUES(1, 0)");
+      res.send("Reset!");
+      client.release();
+    } catch (err) {
+      console.error(err);
+      res.send("Error " + err);
+    }
+  })
+
   .get('/secretreset', async (req, res) => {
     try {
       const client = await pool.connect()
