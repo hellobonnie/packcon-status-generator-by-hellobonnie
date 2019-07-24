@@ -422,11 +422,7 @@ express()
           res.write('<center>');
           res.write('<br />' + randomStatus + '<br />');
           res.write('<br><br><br><button onclick="location.reload();">Generate New PackCon Status</button><br><br></center>');
-          res.write('<br><br>
-  <br><br>
-  <br><br>
-  PACKCON STATUS GENERATOR<br>
-  by Bonnie He');
+          res.write('<br><br><br><br><br><br>PACKCON STATUS GENERATOR<br>by Bonnie He');
                     
           res.end();
           client.release();
