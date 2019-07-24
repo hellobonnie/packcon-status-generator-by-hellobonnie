@@ -420,9 +420,9 @@ express()
           
           res.writeHead(200, {'Content-Type': 'text/html'});
           res.write('<center>');
-          res.write('<br />' + randomStatus + '<br />');
+          res.write('<br /><br /><br />' + randomStatus + '<br />');
           res.write('<br><br><br><button onclick="location.reload();">Generate New PackCon Status</button><br><br>');
-          res.write('<br><br><br><br><br><br>PACKCON STATUS GENERATOR<br>by Bonnie He</center>');
+          res.write('<br><br><br><br>PACKCON STATUS GENERATOR<br>by Bonnie He</center>');
                     
           res.end();
           client.release();
