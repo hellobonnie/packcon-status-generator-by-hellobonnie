@@ -469,7 +469,7 @@ express()
           currentitem = result.rows[0];
           newcount = currentitem.count + 1;
           
-          var randomStatus = (pickRandom(subjectlist) + ' ' + pickRandom(activitylist) + ' ' + pickRandom(objectlist) + ' at #PackCon.');
+          var randomStatus = (pickRandom(subjectlist) + ' ' + pickRandom(activitylist) + ' ' + pickRandom(objectlist) + ' at #PackCon4.');
           newphrase = "'" + randomStatus + "'";        
           
           query1 = "UPDATE test_table SET count = " + newcount + " WHERE id = 1";
