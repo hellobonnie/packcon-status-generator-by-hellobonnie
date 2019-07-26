@@ -69,7 +69,36 @@ var subjectlist = ([
 'MURDERFIST',
 'SPEEDFACE',
 'DR. TIME****',
-'HELL KROSS'  
+'HELL KROSS',
+
+  
+ // Invdividual names here
+
+'DOMINIQUE JOHNSON',
+"BRIAN JAMES O\'CONNELL",
+'TYLER DAVIDSON',
+'NICKY URBAN',
+'PHILLIP BINDER',
+'TIFFANY ALEMAN',
+'FRANKIE G',
+'EMILY CHAMPLIN',
+'GRADY JAMES WELCH ',
+'IAN ZANDI',
+'ANDREA LISTENBERGER',
+'BILLY RITTER',
+'ELISA N. ELLIS',
+'ERIN NICOLE BOUNDS',
+'ESTEVAN GALVEZ',
+'JULES FORDE',
+'GIL BARON',
+'EVE ESQUIRE',
+'HOOKS',
+'LEROY PATTERSON',
+'RICARDO FELICIANO',
+'RICHARD AARON',
+'JANYNICOLE STEHMAN',
+'ELYSSA PHILLIPS',
+    
 ]);
 
 var activitylist = ([
@@ -219,6 +248,9 @@ var activitylist = ([
 'is mansplaining to',
 'is too shy to talk to',
 'is never gonna give up',
+'is never gonna let down',
+'is never gonna run around and desert',
+"is beefin\' with",
 'is flirting with',
 'is using a safe word with',
 'is supes jealous of',
@@ -313,7 +345,36 @@ var objectlist = ([
 'MURDERFIST',
 'SPEEDFACE',
 'DR. TIME****',
-'HELL KROSS' 
+'HELL KROSS',
+
+   // Invdividual names here
+
+'DOMINIQUE JOHNSON',
+"BRIAN JAMES O\'CONNELL",
+'TYLER DAVIDSON',
+'NICKY URBAN',
+'PHILLIP BINDER',
+'TIFFANY ALEMAN',
+'FRANKIE G',
+'EMILY CHAMPLIN',
+'GRADY JAMES WELCH ',
+'IAN ZANDI',
+'ANDREA LISTENBERGER',
+'BILLY RITTER',
+'ELISA N. ELLIS',
+'ERIN NICOLE BOUNDS',
+'ESTEVAN GALVEZ',
+'JULES FORDE',
+'GIL BARON',
+'EVE ESQUIRE',
+'HOOKS',
+'LEROY PATTERSON',
+'RICARDO FELICIANO',
+'RICHARD AARON',
+'JANYNICOLE STEHMAN',
+'ELYSSA PHILLIPS',
+  
+  
 ]);
 
 //
