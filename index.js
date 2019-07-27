@@ -480,9 +480,13 @@ express()
           
           res.writeHead(200, {'Content-Type': 'text/html'});
           res.write('<center>');
+          
+          
           res.write('<br /><br /><br />' + randomStatus + '<br />');
-          res.write('<br><br><br><button onclick="location.reload();">Generate New PackCon Status</button><br><br>');
-          res.write('<br><br><br><br>PACKCON STATUS GENERATOR<br>by Bonnie He</center>');
+          res.write('<br><br><br><button><a href="https://youtu.be/kTKDz6i5bXA" target="_blank"><font color=black>Generate New PackCon Status</font></a></button><br><br>');
+          res.write('<body><head><style>a:link, a:visited {color: black;text-decoration: none;}</head></style>');
+//no rr          res.write('<br><br><br><button onclick="location.reload();">Generate New PackCon Status</button><br><br>');
+          res.write('<br><br><br><br>PACKCON STATUS GENERATOR<br>by Bonnie He</center></body>');
                     
           res.end();
           client.release();
