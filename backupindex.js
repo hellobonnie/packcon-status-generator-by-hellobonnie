@@ -21,11 +21,13 @@ function pickRandom(argument) {
 
 var subjectlist = ([
 'BONNIE HE',
+'THE BAE*GENCY',
 'The Pack',
 'THE OINTMENT',
 'YOUR LATE NIGHT SHOW TONIGHT',
 'THE NICKY URBAN SHOW',
-'LATE NITE HOOK UPS',
+'LATE NITE HOOKS UP',
+'THE BAE*GENCY',
 'THE BAE*GENCY',
 'YAY!',
 'BIG YELLOW TAXI',
@@ -67,7 +69,36 @@ var subjectlist = ([
 'MURDERFIST',
 'SPEEDFACE',
 'DR. TIME****',
-'HELL KROSS'  
+'HELL KROSS',
+
+  
+ // Invdividual names here
+
+'DOMINIQUE JOHNSON',
+"BRIAN JAMES O\'CONNELL",
+'TYLER DAVIDSON',
+'NICKY URBAN',
+'PHILLIP BINDER',
+'TIFFANY ALEMAN',
+'FRANKIE G',
+'EMILY CHAMPLIN',
+'GRADY JAMES WELCH ',
+'IAN ZANDI',
+'ANDREA LISTENBERGER',
+'BILLY RITTER',
+'ELISA N. ELLIS',
+'ERIN NICOLE BOUNDS',
+'ESTEVAN GALVEZ',
+'JULES FORDE',
+'GIL BARON',
+'EVE ESQUIRE',
+'HOOKS',
+'LEROY PATTERSON',
+'RICARDO FELICIANO',
+'RICHARD AARON',
+'JANYNICOLE STEHMAN',
+'ELYSSA PHILLIPS',
+    
 ]);
 
 var activitylist = ([
@@ -123,7 +154,7 @@ var activitylist = ([
 'is booing at',
 'is getting auditioning tips from',
 'is buying pizza for',
-'is Rickrolling',
+'is rickrolling',
 'needs to borrow a wig for',
 'is writing for',
 'is sipping',
@@ -170,7 +201,7 @@ var activitylist = ([
 'faked an orgasm with',
 'is developing feels for',
 'is sabotaging',
-'is plotting with',
+'is plotting against',
 'is teaching sex ed to',
 'is fantasizing about', 
 'owes a favor to',
@@ -197,14 +228,14 @@ var activitylist = ([
 'is ghosting',
 'is getting divorced from',
 'is going to frame a murder on',
-'in love with',
+'is in love with',
 'wants to take long walks on the beach with',
 'is stealing ideas from',
 'is laughing at, not with',
 'is crazy for',
 'is thirsty for',
 'is setting a thirst trap for',
-'is falling in live with',
+'is falling in love with',
 'is FWB with',
 'is giving $100 to',
 'is wingmanning',
@@ -217,30 +248,30 @@ var activitylist = ([
 'is mansplaining to',
 'is too shy to talk to',
 'is never gonna give up',
+'is never gonna let down',
+'is never gonna run around and desert',
+"is beefin\' with",
 'is flirting with',
-'is trying BDSM with',
+'is using a safe word with',
 'is supes jealous of',
 'is putting a hex on',
 'is taking a break from',
-'knows too much about',
 'wants to repeal and replace',
 'is blackmailing',
 'is getting swole for',
 'cannot unsee',  
+'is gossiping about you with',
 
 ]);
 
 var objectlist = ([
- 'you',
+'you',
 'your dad',
-'a DILF',
+'this DILF',
 'dat ass',
 'your ass',            
 'a Pack improv team',
 'a Pack sketch team',
-'a variety show',
-'a sketch show',
-'a improv show',
 'the tea',
 'your bit',
 'your indie team',
@@ -252,7 +283,7 @@ var objectlist = ([
 'clowns',
 'your sketch packet',
 'a Furry',
-'your audition tape',
+'your self-tape',
 'your characters',
 'your crew',
 'your crush',
@@ -267,10 +298,12 @@ var objectlist = ([
   // Manually copying/pasting subject array afer this point
 
 'The Pack',  
+'THE BAE*GENCY',
 'THE OINTMENT',
 'YOUR LATE NIGHT SHOW TONIGHT',
 'THE NICKY URBAN SHOW',
-'LATE NITE HOOK UPS',
+'LATE NITE HOOKS UP',
+'THE BAE*GENCY',
 'THE BAE*GENCY',
 'YAY!',
 'BIG YELLOW TAXI',
@@ -312,7 +345,36 @@ var objectlist = ([
 'MURDERFIST',
 'SPEEDFACE',
 'DR. TIME****',
-'HELL KROSS' 
+'HELL KROSS',
+
+   // Invdividual names here
+
+'DOMINIQUE JOHNSON',
+"BRIAN JAMES O\'CONNELL",
+'TYLER DAVIDSON',
+'NICKY URBAN',
+'PHILLIP BINDER',
+'TIFFANY ALEMAN',
+'FRANKIE G',
+'EMILY CHAMPLIN',
+'GRADY JAMES WELCH ',
+'IAN ZANDI',
+'ANDREA LISTENBERGER',
+'BILLY RITTER',
+'ELISA N. ELLIS',
+'ERIN NICOLE BOUNDS',
+'ESTEVAN GALVEZ',
+'JULES FORDE',
+'GIL BARON',
+'EVE ESQUIRE',
+'HOOKS',
+'LEROY PATTERSON',
+'RICARDO FELICIANO',
+'RICHARD AARON',
+'JANYNICOLE STEHMAN',
+'ELYSSA PHILLIPS',
+  
+  
 ]);
 
 //
@@ -327,34 +389,6 @@ express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
-
-//  .get('/', (req, res) => res.render('pages/index'))
-
-  .get('/db', async (req, res) => {
-    try {
-      const client = await pool.connect()
-      const result = await client.query('SELECT * FROM phrase_table');
-      const results = { 'results': (result) ? result.rows : null};
-      res.render('pages/db', results );
-      client.release();
-    } catch (err) {
-      console.error(err);
-      res.send("Error " + err);
-    }
-  })
-
-  .get('/dbclear', async (req, res) => {
-    try {
-      const client = await pool.connect()
-      const result1 = await client.query("DROP TABLE test_table");    
-      const result2 = await client.query("DROP TABLE phrase_table");    
-      res.send("Database cleared");
-      client.release();
-    } catch (err) {
-      console.error(err);
-      res.send("Error " + err);
-    }
-  })
 
   .get('/showdatabase', async (req, res) => {
     try {
@@ -371,7 +405,10 @@ express()
           for (var i = 0; i < presultrows.length; i++) {
            currentphraseitem = presultrows[i];
            if (currentphraseitem) {
-              bigphrase2 = bigphrase2 + 'phrase ' + (i+1) + ' : ' + currentphraseitem.phrase + '<br />';    
+              bigphrase2 += 'phrase ' + (i+1) + ' : ';
+              bigphrase2 += '<b>' + currentphraseitem.phrase + '</b>';    
+              bigphrase2 += ' | generated on ' + currentphraseitem.createtime;
+              bigphrase2 += '<br />';
             } else {
               bigphrase2 = bigphrase2 + 'is empty (error?) <br />';
             }
@@ -389,81 +426,19 @@ express()
     }
   })
 
-/*
-  .get('/dbread', async (req, res) => {
-    try {
-      bigphrase = 'DBREAD<br />';
-      const client = await pool.connect()
-
-      client.query("SELECT * FROM test_table", function (err, result, fields) {
-        if (err) {
-          console.error("UHUH");
-        } else {
-          currentitem = result.rows[0];          
-          bigphrase1 = '<b>count:</b><br /><br />Count: ' + currentitem.count + '<br />';    
-        }
-      })
-      
-      client.query("SELECT * FROM phrase_table", function (perr, presult, pfields) {
-        if (perr) {
-          console.error("UHUH");
-        } else {
-          bigphrase2 = '<b> of all phrases generated:</b>';
-          
-          for (var currentphraseitem in presult.rows) {
-//          currentphraseitem = presult.rows[0];
-            if (currentphraseitem) {
-              bigphrase2 = bigphrase2 + 'phraze iz ' + currentphraseitem.count;    
-            } else {
-              bigphrase2 = bigphrase2 + 'iz empty ';
-            }
-          }
-        }
-      })
-      
-      res.writeHead(200, {'Content-Type': 'text/html'});
-      res.write(bigphrase);
-      res.write(bigphrase1);
-      res.write(bigphrase2);
-      res.end();
-
-      client.release();
-      
-    } catch (err) {
-      console.error(err);
-      res.send("Error " + err);
-    }
-  })
-*/
-
-  .get('/dbcreate', async (req, res) => {
+  .get('/startup', async (req, res) => {
     try {
       const client = await pool.connect()
-      const result = await client.query("CREATE TABLE test_table(id SERIAL PRIMARY KEY, count INT)");
-      const result2 = await client.query("CREATE TABLE phrase_table(id SERIAL PRIMARY KEY, phrase TEXT)");
-      res.send("Created tables inside database");
+      const result3 = await client.query("CREATE TABLE test_table(id SERIAL PRIMARY KEY, count INT)");
+      const result4 = await client.query("CREATE TABLE phrase_table(id SERIAL PRIMARY KEY, phrase TEXT, createtime TIMESTAMP)");
+      const result5 = await client.query("INSERT INTO test_table(id, count) VALUES(1, 0)");
+      res.send("Reset!");
       client.release();
     } catch (err) {
       console.error(err);
       res.send("Error " + err);
     }
   })
-
-  .get('/dbinsert', async (req, res) => {
-    try {
-      const client = await pool.connect()
-      const oldcount = await client.query('SELECT * FROM test_table');      
-      const result = await client.query("INSERT INTO test_table(id, count) VALUES(1, 0)");
-      const results = { 'results': (result) ? result.rows : null};
-      res.render('pages/db', results );
-      client.release();
-    } catch (err) {
-      console.error(err);
-      res.send("Error " + err);
-    }
-  })
-
-
 
   .get('/secretreset', async (req, res) => {
     try {
@@ -471,7 +446,7 @@ express()
       const result1 = await client.query("DROP TABLE test_table");    
       const result2 = await client.query("DROP TABLE phrase_table");    
       const result3 = await client.query("CREATE TABLE test_table(id SERIAL PRIMARY KEY, count INT)");
-      const result4 = await client.query("CREATE TABLE phrase_table(id SERIAL PRIMARY KEY, phrase TEXT)");
+      const result4 = await client.query("CREATE TABLE phrase_table(id SERIAL PRIMARY KEY, phrase TEXT, createtime TIMESTAMP)");
       const result5 = await client.query("INSERT INTO test_table(id, count) VALUES(1, 0)");
       res.send("Reset!");
       client.release();
@@ -494,25 +469,21 @@ express()
           currentitem = result.rows[0];
           newcount = currentitem.count + 1;
           
-//          pickRandom
-          var randomStatus = (pickRandom(subjectlist) + ' ' + pickRandom(activitylist) + ' ' + pickRandom(objectlist) + ' at #PackCon.');
+          var randomStatus = (pickRandom(subjectlist) + ' ' + pickRandom(activitylist) + ' ' + pickRandom(objectlist) + ' at #PackCon4.');
           newphrase = "'" + randomStatus + "'";        
-//          newphrase = "'LITTLE TURTLE NUMBER " + newcount + "'";
           
           query1 = "UPDATE test_table SET count = " + newcount + " WHERE id = 1";
-          query2 = "INSERT INTO phrase_table(id, phrase) VALUES(" + newcount + ", " + newphrase + " )";
+          query2 = "INSERT INTO phrase_table(id, phrase, createtime) VALUES(" + newcount + ", " + newphrase + "," + "CURRENT_TIMESTAMP" + " )";
 
           const result3 = client.query(query1);
           const result4 = client.query(query2);
           
           res.writeHead(200, {'Content-Type': 'text/html'});
           res.write('<center>');
-          res.write('<br />' + randomStatus + '<br />');
-//          res.write(query1 + '<br />');
-//          res.write(query2 + '<br />');
-//          res.write('<b>Hey there!</b><br /><br />This is the default response. You are visitor #: ' + newcount);
-          res.write('<br><br><br><button onclick="location.reload();">Generate New PackCon Status</button><br><br></center>');
-          
+          res.write('<br /><br /><br />' + randomStatus + '<br />');
+          res.write('<br><br><br><button onclick="location.reload();">Generate New PackCon Status</button><br><br>');
+          res.write('<br><br><br><br>PACKCON STATUS GENERATOR<br>by Bonnie He</center>');
+                    
           res.end();
           client.release();
         }
@@ -524,3 +495,20 @@ express()
   })
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+
+// UNUSED 
+/*  .get('/', (req, res) => res.render('pages/index'))
+
+  .get('/db', async (req, res) => {
+    try {
+      const client = await pool.connect()
+      const result = await client.query('SELECT * FROM phrase_table');
+      const results = { 'results': (result) ? result.rows : null};
+      res.render('pages/db', results );
+      client.release();
+    } catch (err) {
+      console.error(err);
+      res.send("Error " + err);
+    }
+  })
+*/
